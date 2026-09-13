@@ -24,7 +24,7 @@ Los $1.657.500 de transporte a restaurante son una transferencia interna: no se 
 
 ## Cuotas por mes asignado, 2026
 
-Se usa la columna Mes, normalizando sep/sept y juL, salvo cuatro celdas cuyo mes está desplazado y contradice fecha y descripción. Los pagos atrasados y anticipados impiden interpretar esta tabla como flujo de caja recibido en cada mes. Junio no tiene cuotas registradas: no se infiere deuda ni obligación de cobro.
+Se usa la columna Mes, normalizando sep/sept y juL, salvo cuatro celdas cuyo mes está desplazado y contradice fecha y descripción. Los pagos atrasados y anticipados impiden interpretar esta tabla como flujo de caja recibido en cada mes. Junio no se cobra, según confirmación del responsable.
 
 | Mes | Restaurante | Cuentas con pago R. | Transporte | Cuentas con pago T. |
 |---|---:|---:|---:|---:|
@@ -63,13 +63,13 @@ Los cortes se definen por posición de las filas del libro y sus notas. Contiene
 | Marzo (F52:F111) | $857.000 | $710.000 | $340.000 | $21.000 | $0 | $1.928.000 | $1.928.000 | $0 |
 | Abril (F121:F281) | $2.230.000 | $80.000 | $0 | $0 | $0 | $2.310.000 | $1.663.500 | $646.500 |
 | Mayo (F289:F358) | $910.000 | $40.000 | $176.000 | $0 | $646.500 | $1.772.500 | $1.772.500 | $0 |
-| Junio (F367:F399) | $486.000 | $0 | $781.500 | $0 | $0 | $1.267.500 | $1.267.500 | $0 |
-| Julio (F406:F521) | $1.508.000 | $0 | $0 | $0 | $0 | $1.508.000 | $1.267.500 | $240.500 |
-| Bloque final julio/agosto (F529:F562) | $442.000 | $0 | $0 | $0 | $0 | $442.000 | $0 | $442.000 |
+| Junio (F366:F398) | $486.000 | $0 | $781.500 | $0 | $0 | $1.267.500 | $1.267.500 | $0 |
+| Julio (F405:F520) | $1.508.000 | $0 | $0 | $0 | $0 | $1.508.000 | $1.267.500 | $240.500 |
+| Bloque final julio/agosto (F528:F561) | $442.000 | $0 | $0 | $0 | $0 | $442.000 | $0 | $442.000 |
 
-El sobrante de abril de $646.500 se arrastra a mayo: no es un ingreso nuevo. Hasta el bloque de julio se reúnen $9.439.500 ($6.698.000 de familias + $1.032.000 de profesores + $1.657.500 de transporte + $52.000 de fotocopias). Después de ecónomas quedan $240.500. Se prestan $220.000 a estudiantes, quedan $20.500 (F528), y el bloque final de $442.000 (F563) lleva el saldo de restaurante a $462.500.
+La celda RESTAURANTE!F359 ahora suma $910.000 de cuotas y $646.500 de sobrante de abril, total $1.556.500. Se eliminó la fila separada del sobrante. En la tabla se desglosan esos componentes para explicar el origen del dinero sin duplicarlo. El sobrante no es un ingreso nuevo. Hasta el bloque de julio se reúnen $9.439.500 ($6.698.000 de familias + $1.032.000 de profesores + $1.657.500 de transporte + $52.000 de fotocopias). Después de ecónomas quedan $240.500. Se prestan $220.000 a estudiantes, quedan $20.500 (F527), y el bloque final de $442.000 (F562) lleva el saldo de restaurante a $462.500.
 
-Los aportes de profesores están en RESTAURANTE!F46 ($202.000), F113 ($710.000), F283 ($80.000) y F362 ($40.000). Las fórmulas los suman a los recursos para ecónomas, por lo que se interpretan como ingresos aportados por profesores, no pagos de nómina a profesores.
+Los aportes de profesores están en RESTAURANTE!F46 ($202.000), F113 ($710.000), F283 ($80.000) y F361 ($40.000). Las fórmulas los suman a los recursos para ecónomas, por lo que se interpretan como ingresos aportados por profesores, no pagos de nómina a profesores.
 
 ## Préstamos y trazabilidad
 
@@ -77,11 +77,11 @@ Los aportes de profesores están en RESTAURANTE!F46 ($202.000), F113 ($710.000),
 |---|---:|---|
 | Transporte → restaurante, febrero | $360.000 | TRANSPORTE!F23 / RESTAURANTE!F47 |
 | Transporte → restaurante, marzo | $340.000 | TRANSPORTE!F59 / RESTAURANTE!F114 |
-| Transporte → restaurante, mayo | $176.000 | TRANSPORTE!F171 / RESTAURANTE!F361 |
-| Transporte → restaurante, junio | $781.500 | TRANSPORTE!F178 / RESTAURANTE!F401 |
+| Transporte → restaurante, mayo | $176.000 | TRANSPORTE!F171 / RESTAURANTE!F360 |
+| Transporte → restaurante, junio | $781.500 | TRANSPORTE!F178 / RESTAURANTE!F400 |
 | Fotocopias → restaurante, febrero | $31.000 | RESTAURANTE!F48 |
 | Fotocopias → restaurante, marzo | $21.000 | RESTAURANTE!F115 |
-| Restaurante → estudiantes | $220.000 | RESTAURANTE!F527 y comentario F526 |
+| Restaurante → estudiantes | $220.000 | RESTAURANTE!F526 y comentario F525 |
 
 Las notas de mayo y junio dicen «préstamo a transporte», pero las salidas de la hoja transporte y su destino restaurante respaldan la dirección transporte → restaurante. No se deducen intereses ni devoluciones no documentadas.
 
@@ -89,9 +89,9 @@ Las notas de mayo y junio dicen «préstamo a transporte», pero las salidas de 
 
 - Anticipos por $28.000 descritos, sin agregarlos otra vez: G4 $4.000 (Elkin), G23 $11.000 (Abel/Margarita), G54 $4.000 (Paula, comentario «utilizado»), G133 $9.000 (Cenaida), todos en RESTAURANTE. Debe aclararse su aplicación antes de aumentar ingresos o asignarlos a meses.
 - Pagos parciales: RESTAURANTE!F24 y F26 son de $10.000 y sus descripciones indican $3.000 pendientes por cada registro. Se cuentan como familias que abonaron, sin presentar febrero como pagado completamente. No se extrapola una deuda total a partir de meses sin registro.
-- Dos pagos por mismo nombre/mes: Cenaida, febrero (filas 52 y 127); Soraida Urrutia, agosto (294 y 550). Cada caso suma $26.000 con recibos distintos. Se retienen ambos importes y se cuenta la familia una vez.
-- Meses desplazados: RESTAURANTE!I421:I424 se presentan como agosto, septiembre, octubre y noviembre, conforme a B421:B424 y G421:G424. No se modifica el archivo.
-- RESTAURANTE!C286 y C405 están vacías, pero los pagos de $550.000 y $422.500 pertenecen a ecónomas y se incluyen. También se incluyen los tres pagos de julio sin ID.
+- Dos pagos por mismo nombre/mes: Cenaida, febrero (filas 52 y 127); Soraida Urrutia, agosto (294 y 549). Cada caso suma $26.000 con recibos distintos. Se retienen ambos importes y se cuenta la familia una vez.
+- Meses desplazados: RESTAURANTE!I420:I423 se presentan como agosto, septiembre, octubre y noviembre, conforme a B420:B423 y G420:G423. No se modifica el archivo.
+- RESTAURANTE!C286 y C404 están vacías, pero los pagos de $550.000 y $422.500 pertenecen a ecónomas y se incluyen. También se incluyen los tres pagos de julio sin ID.
 - «RECTIFICAR(FERNANDO O FERNANDA PILLIMUE)» no se une automáticamente a «GONZALO FERNANDO PILLIMUE». Tampoco se resuelve «RECTIFICAR(MARCELA PILLIMUE)».
 - Melva Cecilia Ortega Bello aparece sola en transporte y acompañada de Jaime Oswaldo Quina en restaurante. Se conservan como cuentas distintas por nombre completo hasta confirmar la equivalencia. No se unen cuentas por compartir un solo acudiente.
 - El comentario de RESTAURANTE!F113 tiene 14 nombres y la fórmula suma 15 importes. El total de $710.000 coincide; la asignación individual no puede confirmarse.
